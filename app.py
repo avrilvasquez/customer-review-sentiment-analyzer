@@ -16,16 +16,27 @@ negative_words = ["bad", "terrible", "awful", "poor", "hate"]
 positive_count = 0
 negative_count = 0
 
+previous_word = ""
+
 for word in review_lower.split():
     word = word.strip(string.punctuation)
 
     if word in positive_words:
-          positive_count += 1
-    elif word in negative_words:
-          negative_count += 1
+        if previous_word == "not":
+            negative_count += 1
+        else:
+            positive_count += 1
 
-print("Positive words found:", positive_count)
-print("Negative words found:", negative_count)
+    elif word in negative_words:
+        if previous_word == "not":
+            positive_count += 1
+        else:
+            negative_count += 1
+
+    previous_word = word
+
+print("Positive points:", positive_count)
+print("Negative points:", negative_count)
 
 if positive_count > negative_count:
      print("Sentiment: Positive")
