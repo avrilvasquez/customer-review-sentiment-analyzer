@@ -31,25 +31,32 @@ while True:
     positive_count = 0
     negative_count = 0
 
+    matched_words = []
+
     previous_word = ""
 
     for word in review_lower.split():
         word = word.strip(string.punctuation)
 
         if word in positive_words:
+            matched_words.append(word)
             if previous_word == "not":
                 negative_count += 1
             else:
                 positive_count += 1
 
         elif word in negative_words:
+            matched_words.append(word)
             if previous_word == "not":
                 positive_count += 1
             else:
                 negative_count += 1
 
+        
+
         previous_word = word
 
+    print("Matched words:", matched_words)
     print("Positive points:", positive_count)
     print("Negative points:", negative_count)
 
