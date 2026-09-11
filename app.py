@@ -10,43 +10,48 @@ def get_sentiment(positive_count, negative_count):
      else:
           return "No sentiment words detected"
 
-review = input("Enter a customer review: ").strip()
+while True:
 
-if not review:
-        print("Please enter a review.")
-        raise SystemExit
+    review = input("Enter a customer review: ").strip()
 
-print("You wrote:", review)
+    if review.lower() == "quit":
+        break
 
-review_lower = review.lower()
+    if not review:
+            print("Please enter a review.")
+            continue
 
-positive_words = ["great", "good", "amazing", "excellent", "love", "friendly"]
-negative_words = ["bad", "terrible", "awful", "poor", "hate"]
+    print("You wrote:", review)
 
-positive_count = 0
-negative_count = 0
+    review_lower = review.lower()
 
-previous_word = ""
+    positive_words = ["great", "good", "amazing", "excellent", "love", "friendly"]
+    negative_words = ["bad", "terrible", "awful", "poor", "hate"]
 
-for word in review_lower.split():
-    word = word.strip(string.punctuation)
+    positive_count = 0
+    negative_count = 0
 
-    if word in positive_words:
-        if previous_word == "not":
-            negative_count += 1
-        else:
-            positive_count += 1
+    previous_word = ""
 
-    elif word in negative_words:
-        if previous_word == "not":
-            positive_count += 1
-        else:
-            negative_count += 1
+    for word in review_lower.split():
+        word = word.strip(string.punctuation)
 
-    previous_word = word
+        if word in positive_words:
+            if previous_word == "not":
+                negative_count += 1
+            else:
+                positive_count += 1
 
-print("Positive points:", positive_count)
-print("Negative points:", negative_count)
+        elif word in negative_words:
+            if previous_word == "not":
+                positive_count += 1
+            else:
+                negative_count += 1
 
-sentiment = get_sentiment(positive_count, negative_count)
-print("Sentiment:", sentiment)
+        previous_word = word
+
+    print("Positive points:", positive_count)
+    print("Negative points:", negative_count)
+
+    sentiment = get_sentiment(positive_count, negative_count)
+    print("Sentiment:", sentiment)
