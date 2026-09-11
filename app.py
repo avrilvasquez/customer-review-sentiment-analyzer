@@ -1,6 +1,11 @@
 import string
 
-review = input("Enter a customer review: ")
+review = input("Enter a customer review: ").strip()
+
+if not review:
+        print("Please enter a review.")
+        raise SystemExit
+
 print("You wrote:", review)
 
 review_lower = review.lower()
@@ -18,6 +23,9 @@ for word in review_lower.split():
           positive_count += 1
     elif word in negative_words:
           negative_count += 1
+
+print("Positive words found:", positive_count)
+print("Negative words found:", negative_count)
 
 if positive_count > negative_count:
      print("Sentiment: Positive")
