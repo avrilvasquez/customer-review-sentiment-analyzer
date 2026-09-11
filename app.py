@@ -31,5 +31,7 @@ if positive_count > negative_count:
      print("Sentiment: Positive")
 elif negative_count > positive_count:
      print("Sentiment: Negative")
+elif positive_count > 0:
+      print("Sentiment: Mixed")
 else:
-     print("Sentiment: Neutral")
+      print("Sentiment: No sentiment words detected")
