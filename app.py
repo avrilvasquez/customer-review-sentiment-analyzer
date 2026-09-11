@@ -1,5 +1,15 @@
 import string
 
+def get_sentiment(positive_count, negative_count):
+     if positive_count > negative_count:
+        return "Positive"
+     elif negative_count > positive_count:
+        return "Negative"
+     elif positive_count > 0:
+        return "Mixed"
+     else:
+          return "No sentiment words detected"
+
 review = input("Enter a customer review: ").strip()
 
 if not review:
@@ -10,7 +20,7 @@ print("You wrote:", review)
 
 review_lower = review.lower()
 
-positive_words = ["great", "good", "amazing", "excellent", "love"]
+positive_words = ["great", "good", "amazing", "excellent", "love", "friendly"]
 negative_words = ["bad", "terrible", "awful", "poor", "hate"]
 
 positive_count = 0
@@ -38,11 +48,5 @@ for word in review_lower.split():
 print("Positive points:", positive_count)
 print("Negative points:", negative_count)
 
-if positive_count > negative_count:
-     print("Sentiment: Positive")
-elif negative_count > positive_count:
-     print("Sentiment: Negative")
-elif positive_count > 0:
-      print("Sentiment: Mixed")
-else:
-      print("Sentiment: No sentiment words detected")
+sentiment = get_sentiment(positive_count, negative_count)
+print("Sentiment:", sentiment)
