@@ -1,28 +1,18 @@
 import string
 
+
 def get_sentiment(positive_count, negative_count):
-     if positive_count > negative_count:
+    if positive_count > negative_count:
         return "Positive"
-     elif negative_count > positive_count:
+    elif negative_count > positive_count:
         return "Negative"
-     elif positive_count > 0:
+    elif positive_count > 0:
         return "Mixed"
-     else:
-          return "No sentiment words detected"
+    else:
+        return "No sentiment words detected"
 
-while True:
 
-    review = input("Enter a customer review: ").strip()
-
-    if review.lower() == "quit":
-        break
-
-    if not review:
-            print("Please enter a review.")
-            continue
-
-    print("You wrote:", review)
-
+def analyze_review(review):
     review_lower = review.lower()
 
     positive_words = ["great", "good", "amazing", "excellent", "love", "friendly"]
@@ -30,9 +20,7 @@ while True:
 
     positive_count = 0
     negative_count = 0
-
     matched_words = []
-
     previous_word = ""
 
     for word in review_lower.split():
@@ -52,9 +40,24 @@ while True:
             else:
                 negative_count += 1
 
-        
-
         previous_word = word
+
+    return positive_count, negative_count, matched_words
+
+
+while True:
+    review = input("Enter a customer review (or quit): ").strip()
+
+    if review.lower() == "quit":
+        break
+
+    if not review:
+        print("Please enter a review.")
+        continue
+
+    print("You wrote:", review)
+
+    positive_count, negative_count, matched_words = analyze_review(review)
 
     print("Matched words:", matched_words)
     print("Positive points:", positive_count)
