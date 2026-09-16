@@ -2,6 +2,10 @@
 
 A beginner Python project that analyzes customer reviews using keyword matching and basic negation handling. Includes a terminal version and a Streamlit web interface.
 
+## Live Demo
+
+[Try the Customer Review Sentiment Analyzer](https://avril-review-analyzer.streamlit.app/)
+
 ## Features
 
 - Identifies positive and negative words
@@ -11,6 +15,10 @@ A beginner Python project that analyzes customer reviews using keyword matching 
 - Labels results Positive, Negative, Mixed, or No sentiment words detected
 - Rejects empty reviews
 - Allows multiple reviews in the terminal until you type `quit`
+
+## Demo
+
+![Customer review analyzer showing a Mixed result](images/demo.png)
 
 ## Setup
 
