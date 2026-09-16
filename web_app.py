@@ -17,6 +17,7 @@ if st.button("Analyze"):
 
         st.subheader(f"Sentiment: {sentiment}")
         st.write("Positive points:", positive)
+        st.write("Negative points:", negative)
         st.write("Matched words:", ", ".join(matched) if matched else "None")
 
 st.caption(
