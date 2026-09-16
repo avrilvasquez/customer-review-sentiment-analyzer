@@ -4,7 +4,7 @@ from app import analyze_review, get_sentiment
 st.title("Customer Review Sentiment Analyzer")
 st.write(
     "Explore the sentiment of a customer review using keyword matching "
-    "and a simple rule for 'not."
+    "and a simple rule for 'not'."
 )
 review = st.text_area("Enter a customer review:")
 
