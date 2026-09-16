@@ -44,24 +44,25 @@ def analyze_review(review):
 
     return positive_count, negative_count, matched_words
 
+if __name__ == "__main__":
 
-while True:
-    review = input("Enter a customer review (or quit): ").strip()
+    while True:
+        review = input("Enter a customer review (or quit): ").strip()
 
-    if review.lower() == "quit":
-        break
+        if review.lower() == "quit":
+            break
 
-    if not review:
-        print("Please enter a review.")
-        continue
+        if not review:
+            print("Please enter a review.")
+            continue
 
-    print("You wrote:", review)
+        print("You wrote:", review)
 
-    positive_count, negative_count, matched_words = analyze_review(review)
+        positive_count, negative_count, matched_words = analyze_review(review)
 
-    print("Matched words:", matched_words)
-    print("Positive points:", positive_count)
-    print("Negative points:", negative_count)
+        print("Matched words:", matched_words)
+        print("Positive points:", positive_count)
+        print("Negative points:", negative_count)
 
-    sentiment = get_sentiment(positive_count, negative_count)
-    print("Sentiment:", sentiment)
+        sentiment = get_sentiment(positive_count, negative_count)
+        print("Sentiment:", sentiment)
